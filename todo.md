@@ -1,0 +1,9 @@
+- [x] make sure rooms are separate 
+- [x] alternate between x and o 
+- [x] make sure only two players can join a room 
+- [x] make sure the player can't join a room that doesn't exist 
+- [x] make sure player cant click when its not his turn
+- [ ] check for a winner
+- [ ] let the player choose his own room maybe, add a more creative way to make rooms
+- [ ] let the player know if he wins or not
+- [ ] add errors to the login page
