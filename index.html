@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+
+    <h1>tic tac toe app</h1>
+    <h2>Create Game</h2>
+    <form id="createGame" method = "POST" action="/create">
+      <label for="createGame"> What is your name? </label>
+      <input name="name" type="text"  placeholder="name"required
+      />
+      <button formaction="/create">create</button>
+    </form>
+
+    <h2>Join Game</h2>
+    <form action="/join" method="POST" id="joinGame" >
+
+      <label for="joinGame">What is your name</label>
+      <input type="text" name="name"  placeholder="name" required>
+
+      <label for="joinGame">What room number do you want to join</label>
+      <input type="text" name="room"  placeholder = 'room' required>
+      <button formaction="/join">join</button>
+
+    </form>
+
+
+
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </body>
+</html>
