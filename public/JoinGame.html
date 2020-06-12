@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Game</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <form class="login-form" action="/join" method="POST">
+        <h1>Join Game</h1>
+        <div class="form-control">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder=" "
+            autocomplete="off"
+            required
+          />
+          <label for="username">Name</label>
+        </div>
+        <div class="form-control">
+          <input
+            type="text"
+            name="room"
+            id="room"
+            placeholder=" "
+            autocomplete="off"
+            required
+          />
+          <label for="password">Room Code</label>
+        </div>
+        <button type="submit" class="btn">Join</button>
+      </form>
+  </body>
+</html>

@@ -8,28 +8,24 @@ const url = require("url");
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-let rooms = 0;
 let roominfo = {};
 
 io.on("connection", function (socket) {
   socket.on("move", function (data) {
-
-    if(roominfo[data.room]['turn'] === data.playerToken) { 
+    if (roominfo[data.room]["turn"] === data.playerToken) {
       data["turn"] = roominfo[data.room]["turn"];
       io.in(data.room).emit("move", data);
-
       if (roominfo[data.room]["turn"] === "X") {
         roominfo[data.room]["turn"] = "O";
       } else {
         roominfo[data.room]["turn"] = "X";
       }
     }
-
   });
 
-  socket.on('win', (data) => {
-    io.in(data.room).emit('win', data)
-  })
+  socket.on("win", (data) => {
+    io.in(data.room).emit("win", data);
+  });
 
   socket.on("joinRoom", (room) => {
     socket.join(room);
@@ -39,19 +35,18 @@ io.on("connection", function (socket) {
 });
 
 app.post("/create", (req, res) => {
-  roominfo[rooms] = { gameReady: false, turn: "X", numPlayers: 1 };
+  let code = genAlphaNumeric();
+  roominfo[code] = { gameReady: false, turn: "X", numPlayers: 1 };
   res.redirect(
     url.format({
       pathname: "/game.html",
       query: {
-        room: rooms,
+        room: code,
         name: req.body.name,
-        playerToken: 'X',
+        playerToken: "X",
       },
     })
   );
-
-  rooms++;
 });
 
 app.post("/join", (req, res) => {
@@ -66,7 +61,7 @@ app.post("/join", (req, res) => {
         query: {
           room: room,
           name: req.body.name,
-          playerToken: 'O',
+          playerToken: "O",
         },
       })
     );
@@ -78,3 +73,11 @@ app.post("/join", (req, res) => {
 http.listen(port, function () {
   console.log("listening on *:" + port);
 });
+
+function genAlphaNumeric() {
+  var result = "";
+  chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (var i = 0; i < 5; i++)
+    result += chars[Math.floor(Math.random() * chars.length)];
+  return result;
+}

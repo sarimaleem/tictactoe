@@ -3,7 +3,15 @@
 - [x] make sure only two players can join a room 
 - [x] make sure the player can't join a room that doesn't exist 
 - [x] make sure player cant click when its not his turn
-- [ ] check for a winner
-- [ ] let the player choose his own room maybe, add a more creative way to make rooms
-- [ ] let the player know if he wins or not
+- [x] check for a winner
+- [x] display the winner combo
+- [x] make winning be 5 in a row not 4 
+- [x] add better options on the login screen and also add those fancy buttons
+- [x] let the player choose his own room maybe, add a more creative way to make rooms
+- [x] clean up the game interface
+- [ ] change the board to maybe 13x13?
+- [ ] let player know if its his turn
+- [ ] replay option
+- [ ] let the player know if he wins or not by name
 - [ ] add errors to the login page
+- [ ] add an option to play against an AI
