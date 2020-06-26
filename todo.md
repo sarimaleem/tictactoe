@@ -9,7 +9,8 @@
 - [x] add better options on the login screen and also add those fancy buttons
 - [x] let the player choose his own room maybe, add a more creative way to make rooms
 - [x] clean up the game interface
-- [ ] change the board to maybe 13x13?
+- [x] change the board to maybe 13x13 or a custom layout?
+- [x] make the app work on mobile
 - [ ] let player know if its his turn
 - [ ] replay option
 - [ ] let the player know if he wins or not by name

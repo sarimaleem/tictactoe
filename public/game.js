@@ -26,6 +26,12 @@ socket.on("move", function (data) {
     s.innerHTML = "O";
   }
 
+  if(data.turn === playerToken) { 
+    document.getElementById('turn').innerHTML = 'Opponents turn'
+  } else { 
+    document.getElementById('turn').innerHTML = 'Your Turn'
+  }
+
   let windata = checkVictory(data.row, data.col, playerToken)
   if(windata.win) {
     socket.emit('win', {playerToken, room, wincombo: windata.wincombo})
@@ -66,10 +72,10 @@ $(document.body).on("click", ".square", function () {
 
 function createBoard() {
   board.innerHTML = "";
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 15; i++) {
     let row = document.createElement("div");
     row.className = "row";
-    for (let j = 0; j < 8; j++) {
+    for (let j = 0; j < 15; j++) {
       let square = document.createElement("div");
       square.className = "square";
       square.row = i;
@@ -107,7 +113,7 @@ function checkVictory(row, col, playerToken) {
   }
   r = row + 1;
   c = col;
-  while (r <= 7 && getSquareContent(r, c) === playerToken) {
+  while (r < 15 && getSquareContent(r, c) === playerToken) {
     wincombo.push([r, c])
     cnt++;
     r++;
@@ -127,7 +133,7 @@ function checkVictory(row, col, playerToken) {
   }
   r = row;
   c = col + 1;
-  while (c <= 7 && getSquareContent(r, c) === playerToken) {
+  while (c < 15 && getSquareContent(r, c) === playerToken) {
     wincombo.push([r, c])
     cnt++;
     c++;
@@ -148,7 +154,7 @@ function checkVictory(row, col, playerToken) {
   r = row + 1;
   c = col + 1;
 
-  while (r <= 7 && c <= 7 && getSquareContent(r, c) === playerToken) {
+  while (r < 15 && c < 15 && getSquareContent(r, c) === playerToken) {
     wincombo.push([r, c])
     r++;
     c++;
@@ -161,7 +167,7 @@ function checkVictory(row, col, playerToken) {
   cnt = 1;
   r = row - 1;
   c = col + 1;
-  while (r >= 0 && c <= 7 && getSquareContent(r, c) === playerToken) {
+  while (r >= 0 && c < 15 && getSquareContent(r, c) === playerToken) {
     wincombo.push([r, c])
     r--;
     c++;
@@ -170,7 +176,7 @@ function checkVictory(row, col, playerToken) {
   r = row + 1;
   c = col - 1;
 
-  while (r <= 7 && c >= 0 && getSquareContent(r, c) === playerToken) {
+  while (r < 15 && c >= 0 && getSquareContent(r, c) === playerToken) {
     wincombo.push([r, c])
     r++;
     c--;
