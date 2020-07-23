@@ -17,11 +17,12 @@ body {
     border-color: black; 
     width: 4%;
     /* height: 50px; */
-    /* border-radius: 3px; */
     vertical-align: top;
     font-family: Arial;
     /* font-weight: 1000; */
-    font-size: xx-large;
+    font-size:xx-large;
+    text-align: center;
+    line-height: 100%;
     /* background-color: #34495e;     */
     height: 0;
     padding-bottom: 4%;
@@ -41,6 +42,13 @@ body {
 
 
 #winner {
+    font-family: 'MV Boli';
+    color: black;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#info {
     font-family: 'MV Boli';
     color: black;
     font-size: xx-large;
