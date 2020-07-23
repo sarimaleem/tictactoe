@@ -11,8 +11,12 @@
 - [x] clean up the game interface
 - [x] change the board to maybe 13x13 or a custom layout?
 - [x] make the app work on mobile
-- [ ] let player know if its his turn
+- [x] let player know if its his turn
+- [x] add an option to play against an AI
+- [x] Create Evaluation Function
+- [x] Use Alpha Beta Pruning
+- [x] Create Move Ordering Function
+- [ ] add a condition for when game is a draw
 - [ ] replay option
-- [ ] let the player know if he wins or not by name
 - [ ] add errors to the login page
-- [ ] add an option to play against an AI
+- [ ] let the player know if he wins or not by name

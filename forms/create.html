@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="forms.css" />
+  </head>
+  <body>
+    <div class="form-style-2">
+      <div class="form-style-2-heading">Create a Game</div>
+      <form action="create" method="post">
+        <label for="name"
+          ><span>Name <span class="required">*</span></span
+          ><input type="text" class="input-field" name="name" value=""
+        /></label>
+
+        <label for="type"
+          ><span>Play Against</span
+          ><select name="type" class="select-field">
+            <option value="AI">AI</option>
+            <option value="Human">Human</option>
+          </select>
+        </label>
+
+        <label for="difficulty"
+          ><span>AI difficulty</span
+          ><select name="difficulty" class="select-field">
+            <option value="1">easy</option>
+            <option value="2">medium</option>
+            <option value="3">hard</option>
+          </select>
+        </label>
+
+        <label><span> </span><input type="submit" value="Submit" /></label>
+        <label>
+          <span></span>
+          <a href="join.html">Or Join a Game...</a>
+        </label>
+
+      </form>
+    </div>
+  </body>
+</html>

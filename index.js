@@ -6,7 +6,10 @@ var port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const url = require("url");
 
-app.use(express.static("public"));
+app.use(express.static("forms", { index: "create.html" }));
+app.use(express.static("multiplayer"));
+app.use(express.static('computer'))
+
 app.use(bodyParser.urlencoded({ extended: true }));
 let roominfo = {};
 
@@ -35,6 +38,19 @@ io.on("connection", function (socket) {
 });
 
 app.post("/create", (req, res) => {
+
+  if(req.body.type === 'AI') { 
+    res.redirect(
+      url.format({
+        pathname: '/botgame.html',
+        query: {
+          name: req.body.name,
+          difficulty: req.body.difficulty
+        }
+      })
+    )
+    return;
+  }
   let code = genAlphaNumeric();
   roominfo[code] = { gameReady: false, turn: "X", numPlayers: 1 };
   res.redirect(
@@ -51,7 +67,7 @@ app.post("/create", (req, res) => {
 
 app.post("/join", (req, res) => {
   let room = req.body.room;
-
+  console.log(roominfo);
   if (roominfo[room] !== undefined && roominfo[room]["numPlayers"] === 1) {
     roominfo[room]["numPlayers"] = 2;
     roominfo[room]["gameReady"] = true;
@@ -66,7 +82,7 @@ app.post("/join", (req, res) => {
       })
     );
   } else {
-    res.redirect("index.html");
+    res.redirect("join.html");
   }
 });
 
